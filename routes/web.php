@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('customers/displaygrid', 'customerController@displaygrid')->name('customers.displaygrid');
 
-Route::resource('customers', 'customerController');
+Route::get('customers/addclient/{id}', 'customerController@additem')->name('customers.addclient');
 
-Route::resource('vehicles', 'vehicleController');
+//Route::resource('customers', 'customerController');
 
-Route::resource('rentals', 'rentalController');
+//Route::resource('vehicles', 'vehicleController');
+
+//Route::resource('rentals', 'rentalController');

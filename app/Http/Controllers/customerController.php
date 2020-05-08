@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
+
+
 
 class customerController extends AppBaseController
 {
@@ -20,7 +23,31 @@ class customerController extends AppBaseController
         $this->customerRepository = $customerRepo;
     }
 
-    /**
+    public function displaygrid(Request $request)
+	{
+		$customers=\App\Models\Customer::all();
+		return view('customers.displaygrid')->with('customers',$customers);    
+	}
+	public function addclient($customerid)
+    {
+		if (Session::has('storage')) {
+			$storage = Session::get('storage');
+			if (isset($storage[$customerid])) {
+				$storage[$customerid]=$storage[$customerid]+1; //add one to customer in storage
+        }
+        else {
+            $storage[$customerid]=1; //new customer in storage
+        }
+    }
+    else {
+        $storage[$customerid]=1; //new storage
+    }
+    Session::put('storage', $storage);
+    return Response::json(['success'=>true,'total'=>$storage[$customerid]],200);
+	}
+	
+	
+	/**
      * Display a listing of the customer.
      *
      * @param Request $request
