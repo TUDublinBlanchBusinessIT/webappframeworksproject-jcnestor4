@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class vehicle
  * @package App\Models
- * @version May 8, 2020, 3:43 pm UTC
+ * @version May 11, 2020, 12:53 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection $rentals
  * @property string $manufacturer

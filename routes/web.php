@@ -19,8 +19,8 @@ Route::get('customers/displaygrid', 'customerController@displaygrid')->name('cus
 
 Route::get('customers/addclient/{id}', 'customerController@additem')->name('customers.addclient');
 
-//Route::resource('customers', 'customerController');
+Route::resource('customers', 'customerController');
 
-//Route::resource('vehicles', 'vehicleController');
+Route::resource('vehicles', 'vehicleController');
 
-//Route::resource('rentals', 'rentalController');
+Route::resource('rentals', 'rentalController');
