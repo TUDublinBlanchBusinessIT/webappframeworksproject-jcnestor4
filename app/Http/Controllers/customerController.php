@@ -34,16 +34,16 @@ class customerController extends AppBaseController
 			$storage = Session::get('storage');
 			if (isset($storage[$customerid])) {
 				$storage[$customerid]=$storage[$customerid]+1; //add one to customer in storage
-        }
-        else {
-            $storage[$customerid]=1; //new customer in storage
-        }
-    }
-    else {
-        $storage[$customerid]=1; //new storage
-    }
-    Session::put('storage', $storage);
-    return Response::json(['success'=>true,'total'=>$storage[$customerid]],200);
+			}
+			else {
+				$storage[$customerid]=1; //new customer in storage
+			}
+		}
+		else {
+			$storage[$customerid]=1; //new storage
+		}
+		Session::put('storage', $storage);
+		return Response::json(['success'=>true,'total'=>$storage[$customerid]],200);
 	}
 	
 	

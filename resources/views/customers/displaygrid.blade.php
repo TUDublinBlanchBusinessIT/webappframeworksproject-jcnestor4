@@ -27,6 +27,7 @@
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
 @endforeach
+<script>
 $(".bth,.addclient").click(function() {
     var total = parseInt($('#carrental').text());
     var i=$(this).val();
@@ -44,6 +45,6 @@ $(".bth,.addclient").click(function() {
       }
     });
 });
-
+</script>
 
 @endsection('content')
